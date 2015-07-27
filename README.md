@@ -1,4 +1,5 @@
 # push-send-register
+
 Two small PHP scripts to register tokens into a database and to send push notifications to devices using Ionic Push Rest API and Webhooks
 
 ### Installation
@@ -20,11 +21,15 @@ $ionic_private_key = "YOUR_PRIVATE_KEY";
 
 ### Usage
 
+##### Registering Tokens
+
 To register tokens add Ionic's Webhook to your app:
 
 ```
 ionic push webhook_url http://yourdomain.com/register.php
 ```
+
+##### Sending Push Notifications
 
 You can use it in your browser by simply going to `/send.php` and filling the form.
 You can also use it via the URL thanks to a GET request:
