@@ -45,4 +45,9 @@ if (isset($message)) {
     ));
 
     $result = curl_exec($ch);
+    if ($result == true) {
+        echo "Pushed!";
+    } else {
+        echo "Error!";
+    }
 }
