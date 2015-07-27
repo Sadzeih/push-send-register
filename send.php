@@ -12,7 +12,8 @@ $data = array();
 $data['tokens'] = $tokens;
 
 if (isset($_POST['message'])) {
-  $message = $_POST['message'];
+    $message = $_POST['message'];
+    $data['notification']['alert'] = $message;
 } else {
     if (isset($_GET['message'])) {
         $message = $_GET['message'];
