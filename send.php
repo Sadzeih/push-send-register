@@ -3,9 +3,12 @@ include("config.php");
 $url = "https://push.ionic.io/api/v1/push";
 
 $data = $db->query("SELECT * FROM tokens");
+
 $tokens = array();
 foreach ($data as $token) {
-    $tokens[] = $token['token'];
+    if ($token['app_id'] == $app_id) {
+        $tokens[] = $token['token'];
+    }
 }
 
 $data = array();
