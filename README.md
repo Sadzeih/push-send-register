@@ -20,4 +20,11 @@ $ionic_private_key = "YOUR_PRIVATE_KEY";
 
 ### Usage
 
-You can use it in browser 
+You can use it in your browser by simply going to `/send.php` and filling the form.
+You can also use it via the URL thanks to a GET request:
+
+```
+http://yourdomain.com/send?message=HelloWorld!
+```
+
+That way you can use it in your code!
