@@ -20,6 +20,12 @@ $ionic_private_key = "YOUR_PRIVATE_KEY";
 
 ### Usage
 
+To register tokens add Ionic's Webhook to your app:
+
+```
+ionic push webhook_url http://yourdomain.com/register.php
+```
+
 You can use it in your browser by simply going to `/send.php` and filling the form.
 You can also use it via the URL thanks to a GET request:
 
