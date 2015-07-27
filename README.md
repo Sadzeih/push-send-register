@@ -24,7 +24,7 @@ You can use it in your browser by simply going to `/send.php` and filling the fo
 You can also use it via the URL thanks to a GET request:
 
 ```
-http://yourdomain.com/send?message=HelloWorld!
+http://yourdomain.com/send.php?message=HelloWorld!
 ```
 
 That way you can use it in your code!
