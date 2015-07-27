@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+include("setup.php");
 
 $webhook = json_decode(file_get_contents('php://input', 'rb'), true);
 if (!empty($webhook)) {
