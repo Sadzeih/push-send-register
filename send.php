@@ -21,7 +21,7 @@ if (isset($_POST['message'])) {
         ?>
         <form action="" method="post">
             <input name="message" type="text">
-            <submit>Send</submit>
+            <input type="submit" value="Submit">
         </form>
         <?php
     }
