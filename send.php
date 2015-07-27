@@ -11,7 +11,7 @@ foreach ($data as $token) {
 $data = array();
 $data['tokens'] = $tokens;
 
-if ($_POST['message']) {
+if (isset($_POST['message'])) {
   $message = $_POST['message'];
 } else {
     if (isset($_GET['message'])) {
