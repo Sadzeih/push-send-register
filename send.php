@@ -11,23 +11,34 @@ foreach ($data as $token) {
 $data = array();
 $data['tokens'] = $tokens;
 
-if (isset($_GET['message'])) {
-$message = $_GET['message'];
-$data['notification']['alert'] = $message;
+if ($_POST['message']) {
+  $message = $_POST['message'];
 } else {
-$data['notification']['alert'] = "No message";
+    if (isset($_GET['message'])) {
+        $message = $_GET['message'];
+        $data['notification']['alert'] = $message;
+    } else {
+        ?>
+        <form action="" method="post">
+            <input name="message" type="text">
+            <submit>Send</submit>
+        </form>
+        <?php
+    }
 }
 
-$data = json_encode($data);
-$private_key = preg_replace("/\n/", "", base64_encode($ionic_private_key));
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    "Content-Type: application/json",
-    "X-Ionic-Application-Id: ".$app_id,
-    "Authorization: Basic ".$private_key,
-));
+if (isset($message)) {
+    $data = json_encode($data);
+    $private_key = preg_replace("/\n/", "", base64_encode($ionic_private_key));
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        "Content-Type: application/json",
+        "X-Ionic-Application-Id: " . $app_id,
+        "Authorization: Basic " . $private_key,
+    ));
 
-$result = curl_exec($ch);
+    $result = curl_exec($ch);
+}
