@@ -19,7 +19,7 @@ $data['notification']['alert'] = "No message";
 }
 
 $data = json_encode($data);
-$private_key = preg_replace("\n", "", base64_encode($ionic_private_key));
+$private_key = preg_replace("/\n/", "", base64_encode($ionic_private_key));
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
