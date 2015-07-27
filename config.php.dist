@@ -1,5 +1,5 @@
 <?php
-$db = new PDO("mysql:dbname=database;host=localhost", "user", "pass");
+$db = new PDO("mysql:dbname=YOUR DATABASE NAME;host=YOUR HOSTNAME", "YOUR USERNAME", "YOUR PASSWORD");
 
 $app_id = "YOUR_ID";
 $ionic_private_key = "YOUR_PRIVATE_KEY";
