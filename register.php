@@ -8,8 +8,7 @@ if (!empty($webhook)) {
         $req = $db->prepare("SELECT COUNT(*) FROM tokens WHERE token = ?");
         $req->execute(array($token));
         $get_token = $req->fetchColumn();
-        if ($get_token > 0) {
-            error_log("ZJDLZQ");
+        if ($get_token == 0) {
             $req = $db->prepare("INSERT INTO tokens (user_id, app_id, token) VALUES(:user_id, :app_id, :token)");
             $req->execute(array(
                 'user_id' => $webhook['user_id'],
