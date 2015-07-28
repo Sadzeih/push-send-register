@@ -7,7 +7,8 @@ if (!empty($webhook)) {
     foreach ($webhook['_push']['android_tokens'] as $token) {
         $req = $db->prepare("SELECT token FROM tokens WHERE user_id = ?");
         $get_token = $req->execute(array($webhook['user_id']));
-        if (is_null($get_token)) {
+        error_log($get_token);
+        if ($get_token) {
             $req = $db->prepare("INSERT INTO tokens (user_id, app_id, token) VALUES(:user_id, :app_id, :token)");
             $req->execute(array(
                 'user_id' => $webhook['user_id'],
