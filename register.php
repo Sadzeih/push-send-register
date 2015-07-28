@@ -8,7 +8,7 @@ if (!empty($webhook)) {
         $req = $db->prepare("SELECT token FROM tokens WHERE user_id = ?");
         $req->execute(array($webhook['user_id']));
         $get_token = $req->fetchAll();
-        error_log($get_token);
+        error_log(print_r($get_token));
         if ($get_token) {
             $req = $db->prepare("INSERT INTO tokens (user_id, app_id, token) VALUES(:user_id, :app_id, :token)");
             $req->execute(array(
