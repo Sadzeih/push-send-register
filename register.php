@@ -2,7 +2,7 @@
 include("config.php");
 include("setup.php");
 
-$webhook = json_decode(file_get_contents('php://input', 'rb'), true);
+$webhook = json_decode(file_get_contents('php://input'), true);
 if (!empty($webhook)) {
     foreach ($webhook['_push']['android_tokens'] as $token) {
         $req = $db->prepare("SELECT COUNT(*) FROM tokens WHERE user_id = ?");
