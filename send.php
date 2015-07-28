@@ -6,6 +6,7 @@ $data = $db->query("SELECT * FROM tokens");
 
 $tokens = array();
 foreach ($data as $token) {
+    error_log($token['app_id']);
     if ($token['app_id'] == $app_id) {
         $tokens[] = $token['token'];
     }
