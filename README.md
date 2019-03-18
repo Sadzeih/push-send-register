@@ -1,4 +1,4 @@
-# push-send-register
+# push-send-register [probably outdated]
 
 Two small PHP scripts to register tokens into a database and to send push notifications to devices using Ionic Push Rest API and Webhooks (only for Android for now)
 
